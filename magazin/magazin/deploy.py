@@ -9,6 +9,10 @@ https://docs.djangoproject.com/en/1.8/howto/deployment/wsgi/
 
 import os
 import sys
+from django.core.wsgi import get_wsgi_application
+
+from whitenoise.django import DjangoWhiteNoise
+
 
 path = "/home/dmitrygorbachev/deploy_python/"
 if path not in sys.path:
@@ -20,10 +24,6 @@ if path not in sys.path:
     sys.path.append(path)
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "magazin.settings")
-
-from django.core.wsgi import get_wsgi_application
-
-from whitenoise.django import DjangoWhiteNoise
 
 
 application = get_wsgi_application()
